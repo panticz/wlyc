@@ -1,4 +1,4 @@
-wlyc
+Linux Yamaha receiver Webcontrol
 ====
 
-wlyc
+Simple Webinterface for Linux Yamaha receiver control: https://github.com/panticz/lyc
