@@ -1,0 +1,98 @@
+#!/bin/sh
+
+URL="http://cdn1.iconfinder.com/data/icons/super-mono-basic/blue"
+
+# get parameter
+p1=`echo "$QUERY_STRING" | cut -d"&" -f1 | cut -d"=" -f2`
+case "$QUERY_STRING" in
+   *\&*)
+   p2=`echo "$QUERY_STRING" | cut -d"&" -f2 | cut -d"=" -f2`
+   ;;
+esac
+
+# parameter
+# cmd 1
+# cmd 2
+# image url
+# alt and title text
+# short description
+# accesskey
+link() {
+    echo "<div class='l'><a href='?p1=$1&p2=$2' accesskey='$6'><img src='$URL/$3' alt='$4' title='$4'>$5</a></div>"
+}
+
+# run command
+/root/lyc $p1 $p2
+
+
+
+
+
+# head
+echo "Content-type: text/html"
+echo ""
+
+echo "<html>"
+echo "<head>"
+echo "<link href='http://dl.panticz.de/wlyc/wlyc.css' rel='stylesheet' type='text/css'>"
+echo "</head>"
+echo "<body>"
+
+# print command
+echo "<div class='cmd'>$p1 $p2</div>"
+
+# control
+echo "<div class='title'>Power</div>"
+link power off button-cross_basic_blue.png "Power Off" OFF
+link power on button-power_basic_blue.png "Power On" ON
+
+echo "<div class='title'>Input</div>"
+link input dvd disc_basic_blue.png DVD DVD
+link input net music_basic_blue.png "Internet Radio" NET
+link input usb usb-stick_basic_blue.png USB USB
+link input pc computer_basic_blue.png PC PC
+
+echo "<div class='title'>Volume</div>"
+link mute on speaker-mute_basic_blue.png Mute "MUTE" m 
+link volume down button-remove_basic_blue.png Display "VOL-" -
+link volume up button-add_basic_blue.png Display "VOL+" +
+link volume -70 speaker_basic_blue.png "Volume -70 dB" -70
+link volume -65 speaker_basic_blue.png "Volume -65 dB" -65
+link volume -60 speaker_basic_blue.png "Volume -60 dB" -60
+link volume -55 speaker_basic_blue.png "Volume -55 dB" -55
+link volume -50 speaker_basic_blue.png "Volume -50 dB" -50
+link volume -45 speaker_basic_blue.png "Volume -45 dB" -45
+link volume -40 speaker_basic_blue.png "Volume -40 dB" -40
+link volume -35 speaker_basic_blue.png "Volume -35 dB" -35
+link volume -30 speaker_basic_blue.png "Volume -30 dB" -30
+
+
+echo "<div class='title'>OSD</div>"
+link osd display desktop_basic_blue.png Display DISP
+link osd menu site-map_basic_blue.png Menu MENU
+link osd left navigation-left_basic_blue.png Left LEFT
+link osd up navigation-up_basic_blue.png Up UP
+link osd enter button-check_basic_blue.png Enter ENTER
+link osd down navigation-down_basic_blue.png Down DOWN
+link osd right navigation-right_basic_blue.png Right RIGHT
+
+echo "<div class='title'>DSP</div>"
+link dsp 2ch equalizer_basic_blue.png 2ch 2ch
+link dsp 7ch equalizer_basic_blue.png "7ch Stereo" 7ch
+
+echo "<div class='title'>Memory</div>"
+link memory 1 inbox_basic_blue.png "Memory 1" 1
+link memory 2 inbox_basic_blue.png "Memory 2" 2
+link memory 3 inbox_basic_blue.png "Memory 3" 3
+link memory 4 inbox_basic_blue.png "Memory 4" 4
+link memory 5 inbox_basic_blue.png "Memory 5" 5
+link memory 6 inbox_basic_blue.png "Memory 6" 6
+
+echo "<div class='title'>Media</div>"
+link prev "" button-rew_basic_blue.png Previous PREV
+link stop "" button-stop_basic_blue.png Stop STOP
+link play "" button-play_basic_blue.png Play PLAY
+link next "" button-ff_basic_blue.png Next NEXT
+
+echo "</body>"
+echo "</html>"
