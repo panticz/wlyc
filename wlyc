@@ -34,7 +34,7 @@ echo ""
 
 echo "<html>"
 echo "<head>"
-echo "<link href='http://raw.github.com/panticz/wlyc/master/wlyc.css' rel='stylesheet' type='text/css'>"
+echo "<link href='http://dl.panticz.de/wlyc/wlyc.css' rel='stylesheet' type='text/css'>"
 echo "</head>"
 echo "<body>"
 
