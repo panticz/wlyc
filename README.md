@@ -1,6 +1,8 @@
 Linux Yamaha Receiver Webcontrol
 ====
 
+![](http://dl.panticz.de/wlyc/wlyc.jpg)
+
 Simple Webinterface for Linux Yamaha receiver control: https://github.com/panticz/lyc
 
 
