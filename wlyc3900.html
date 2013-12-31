@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Yamaha RX-V3900 Control</title>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+<script>
+<!--
+function post(cmd) {
+    $("#cmd").html(cmd);
+
+    url = 'http://192.168.2.4:80/YamahaRemoteControl/ctrl';
+
+    var request = $.ajax({
+        url: url,
+        type: 'POST',
+        contentType: "text/plain",
+        data: '<?xml version="1.0" encoding="UTF-8"?><YAMAHA_AV cmd="PUT">' + cmd + '</YAMAHA_AV>'
+    });
+
+/*
+    request.done(function(msg) {
+        $("#cmd").html(msg);
+    });
+*/
+
+/*
+    request.fail(function(jqXHR, textStatus) {
+        alert("Request failed:" + textStatus);
+    });
+*/
+}
+
+/*
+function get() {
+    $("#cmx").html("getfsdafsda");
+
+    url = 'http://192.168.2.4:80/YamahaRemoteControl/ctrl';
+
+    $.ajax({
+        url: url,
+        type: 'POST',
+        contentType: "text/plain",
+        data: '<?xml version="1.0" encoding="utf-8"?><YAMAHA_AV cmd="GET"><Main_Zone><Basic_Status>GetParam</Basic_Status></Main_Zone></YAMAHA_AV>',
+        success: function(theDateReturned) { alert("fsdfasdfsd") }
+    });
+}
+*/
+
+function mute(v) {
+// <Main_Zone><Volume><Mute>On/Off</Mute></Volume></Main_Zone>
+    cmd = '<Main_Zone><Vol><Mute>' + v + '</Mute></Vol></Main_Zone>';
+    post(cmd);
+}
+
+function vol(v) {
+    cmd = '<Main_Zone><Vol><Up_Down>' + v + '</Up_Down></Vol></Main_Zone>';
+    post(cmd);
+}
+
+function set_vol(v) {
+    cmd = '<Main_Zone><Vol><Lvl><Val>' + v + '</Val><Exp>1</Exp><Unit>dB</Unit></Lvl></Vol></Main_Zone>';
+    post(cmd);
+}
+
+function input(v) {
+    cmd = '<Main_Zone><Input><Input_Sel>' + v + '</Input_Sel></Input></Main_Zone>';
+    post(cmd);
+}
+
+function surr(v) {
+    cmd = '<Main_Zone><Surr><Pgm_Sel><Pgm>' + v + '</Pgm></Pgm_Sel></Surr></Main_Zone>';
+    post(cmd);
+}
+
+function straight(v) {
+    cmd = '<Main_Zone><Surr><Pgm_Sel><Straight>' + v + '</Straight></Pgm_Sel></Surr></Main_Zone>';
+    post(cmd);
+}
+
+function power(v) {
+    cmd = '<Main_Zone><Power_Control><Power>' + v + '</Power></Power_Control></Main_Zone>';
+    post(cmd);
+}
+-->
+</script>
+</head>
+<body>
+
+<fieldset>
+    <legend>Power</legend>
+    <input id="power_on" type="button" value="On" />
+    <input id="power_off" type="button" value="Off" />
+</fieldset>
+
+<fieldset>
+    <legend>Input</legend>
+    <input id="input_dvd" type="button" value="DVD" />
+    <input id="input_tv" type="button" value="TV" />
+    <input id="input_usb" type="button" value="USB" />
+    <input id="input_net" type="button" value="NET" />
+    <input id="input_pc" type="button" value="PC" />
+</fieldset>
+
+<fieldset>
+    <legend>Surround</legend>
+    <input id="surr_Straight_On" type="button" value="Straight" />
+    <input id="surr_Surround_Decode" type="button" value="Surround Decode" />
+</fieldset>
+
+<fieldset>
+    <legend>Enhancer</legend>
+    <input id="surr_Straight_Enhancer" type="button" value="Straight Enhancer" />
+    <input id="surr_7ch_Enhancer" type="button" value="7ch Enhancer" />
+</fieldset>
+
+<fieldset>
+    <legend>Stereo</legend>
+    <input id="surr_2ch_Stereo" type="button" value="2ch Stereo" />
+    <input id="surr_7ch_Stereo" type="button" value="7ch Stereo" />
+</fieldset>
+
+<fieldset>
+    <legend>Vol</legend>
+    <input id="vol_down" type="button" value="Down" />
+    <input id="vol_up" type="button" value="Up" />
+    <input id="vol_-65" type="button" value="-65" />
+    <input id="vol_-60" type="button" value="-60" />
+    <input id="vol_-55" type="button" value="-55" />
+    <input id="vol_-50" type="button" value="-50" />
+    <input id="vol_-45" type="button" value="-45" />
+    <input id="vol_-40" type="button" value="-40" />
+    <input id="vol_-35" type="button" value="-35" />
+    <input id="vol_-30" type="button" value="-30" />
+</fieldset>
+
+<fieldset>
+    <legend>Mute</legend>
+    <input id="mute_on" type="button" value="On" />
+    <input id="mute_off" type="button" value="Off" />
+</fieldset>
+
+<a href="http://192.168.2.4">Amp</a>
+
+<div id="cmd"></div>
+<div id="cmx"></div>
+
+<script>
+//get();
+
+$('#power_on').click(function() {
+    power("On");
+});
+
+$('#power_off').click(function() {
+    power("Standby");
+});
+
+$('#mute_on').click(function() {
+    mute("On");
+});
+
+$('#mute_off').click(function() {
+    mute("Off");
+});
+
+$('#vol_up').click(function() {
+    vol('Up');
+});
+
+$('#vol_down').click(function() {
+    vol('Down');
+});
+
+$('#vol_-30').click(function() {
+    set_vol('-300');
+});
+
+$('#vol_-35').click(function() {
+    set_vol('-350');
+});
+
+$('#vol_-40').click(function() {
+    set_vol('-400');
+});
+
+$('#vol_-45').click(function() {
+    set_vol('-450');
+});
+
+$('#vol_-50').click(function() {
+    set_vol('-500');
+});
+
+$('#vol_-55').click(function() {
+    set_vol('-550');
+});
+
+$('#vol_-60').click(function() {
+    set_vol('-600');
+});
+
+$('#vol_-65').click(function() {
+    set_vol('-650');
+});
+
+$('#input_dvd').click(function() {
+    input('DVD');
+});
+
+$('#input_tv').click(function() {
+    input('TV');
+});
+
+$('#input_usb').click(function() {
+    input('USB');
+});
+
+$('#input_net').click(function() {
+    input('NET RADIO');
+});
+
+$('#input_pc').click(function() {
+    input('PC/MCX');
+});
+
+$('#surr_7ch_Enhancer').click(function() {
+    surr('7ch Enhancer');
+});
+
+$('#surr_7ch_Stereo').click(function() {
+    surr('7ch Stereo');
+});
+
+$('#surr_2ch_Stereo').click(function() {
+    surr('2ch Stereo');
+});
+
+$('#surr_Straight_Enhancer').click(function() {
+    surr('Straight Enhancer');
+});
+
+$('#surr_Surround_Decode').click(function() {
+    surr('Surround Decode');
+});
+
+$('#surr_Straight_On').click(function() {
+    straight('On');
+});
+</script>
+
+</body>
+</html>
