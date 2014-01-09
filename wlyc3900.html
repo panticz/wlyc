@@ -139,6 +139,7 @@ function power(v) {
     <legend>Vol</legend>
     <input id="vol_down" type="button" value="Down" />
     <input id="vol_up" type="button" value="Up" />
+    <input id="vol_-70" type="button" value="-70" />
     <input id="vol_-65" type="button" value="-65" />
     <input id="vol_-60" type="button" value="-60" />
     <input id="vol_-55" type="button" value="-55" />
@@ -227,6 +228,10 @@ $('#vol_-60').click(function() {
 
 $('#vol_-65').click(function() {
     set_vol('-650');
+});
+
+$('#vol_-70').click(function() {
+    set_vol('-700');
 });
 
 $('#input_dvd').click(function() {
