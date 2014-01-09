@@ -48,6 +48,10 @@ function get() {
 }
 */
 
+function open_amp() {
+    window.open('http://192.168.2.4');
+}
+
 function mute(v) {
 // <Main_Zone><Volume><Mute>On/Off</Mute></Volume></Main_Zone>
     cmd = '<Main_Zone><Vol><Mute>' + v + '</Mute></Vol></Main_Zone>';
@@ -87,6 +91,11 @@ function power(v) {
 </script>
 </head>
 <body>
+
+<fieldset>
+    <legend>IP</legend>
+    <input id="open_amp" type="button" value="Amp" />
+</fieldset>
 
 <fieldset>
     <legend>Power</legend>
@@ -141,13 +150,15 @@ function power(v) {
     <input id="mute_off" type="button" value="Off" />
 </fieldset>
 
-<a href="http://192.168.2.4">Amp</a>
-
 <div id="cmd"></div>
 <div id="cmx"></div>
 
 <script>
 //get();
+
+$('#open_amp').click(function() {
+    open_amp();
+});
 
 $('#power_on').click(function() {
     power("On");
