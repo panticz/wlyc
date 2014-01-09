@@ -4,13 +4,15 @@
 <meta charset="utf-8">
 <title>Yamaha RX-V3900 Control</title>
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="https://raw.github.com/carhartl/jquery-cookie/master/jquery.cookie.js"></script>
 
 <script>
 <!--
 function post(cmd) {
     $("#cmd").html(cmd);
 
-    url = 'http://192.168.2.4:80/YamahaRemoteControl/ctrl';
+    ip = $.cookie('ip');
+    url = 'http://' + ip + ':80/YamahaRemoteControl/ctrl';
 
     var request = $.ajax({
         url: url,
@@ -49,7 +51,7 @@ function get() {
 */
 
 function open_amp() {
-    window.open('http://192.168.2.4');
+    window.open('http://' + $.cookie('ip'));
 }
 
 function mute(v) {
@@ -94,7 +96,10 @@ function power(v) {
 
 <fieldset>
     <legend>IP</legend>
+    <form id="ipform" method="post" action="#">
+    <input type="text" name="ip" id="ip">
     <input id="open_amp" type="button" value="Amp" />
+    </form>
 </fieldset>
 
 <fieldset>
@@ -155,6 +160,14 @@ function power(v) {
 
 <script>
 //get();
+
+if($.cookie('ip')) {
+    $('#ip').val($.cookie('ip'));
+}
+
+$('#ipform').submit(function(e){
+    $.cookie('ip', $('#ip').val());
+});
 
 $('#open_amp').click(function() {
     open_amp();
