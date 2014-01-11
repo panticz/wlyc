@@ -167,7 +167,7 @@ if($.cookie('ip')) {
 }
 
 $('#ipform').submit(function(e){
-    $.cookie('ip', $('#ip').val());
+    $.cookie('ip', $('#ip').val(), { expires: 365 });
 });
 
 $('#open_amp').click(function() {
