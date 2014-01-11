@@ -3,6 +3,23 @@
 <head>
 <meta charset="utf-8">
 <title>Yamaha RX-V3900 Control</title>
+<style type="text/css">
+<!--
+fieldset {
+    float: left;
+}
+
+.line {
+    clear:both;
+}
+
+.cmd {
+    color: #999999;
+    text-align: center;
+}
+-->
+</style>
+
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="https://raw.github.com/carhartl/jquery-cookie/master/jquery.cookie.js"></script>
 
@@ -94,6 +111,10 @@ function power(v) {
 </head>
 <body>
 
+<div id="cmd" class="cmd"></div>
+<div id="cmx"></div>
+
+<div class="line">
 <fieldset>
     <legend>IP</legend>
     <form id="ipform" method="post" action="#">
@@ -102,11 +123,16 @@ function power(v) {
     </form>
 </fieldset>
 
+</div>
+
+<div class="line">
 <fieldset>
     <legend>Power</legend>
     <input id="power_on" type="button" value="On" />
     <input id="power_off" type="button" value="Off" />
 </fieldset>
+
+
 
 <fieldset>
     <legend>Input</legend>
@@ -116,7 +142,9 @@ function power(v) {
     <input id="input_net" type="button" value="NET" />
     <input id="input_pc" type="button" value="PC" />
 </fieldset>
+</div>
 
+<div class="line">
 <fieldset>
     <legend>Surround</legend>
     <input id="surr_Straight_On" type="button" value="Straight" />
@@ -134,7 +162,9 @@ function power(v) {
     <input id="surr_2ch_Stereo" type="button" value="2ch Stereo" />
     <input id="surr_7ch_Stereo" type="button" value="7ch Stereo" />
 </fieldset>
+</div>
 
+<div class="line">
 <fieldset>
     <legend>Vol</legend>
     <input id="vol_down" type="button" value="-" />
@@ -155,9 +185,7 @@ function power(v) {
     <input id="mute_on" type="button" value="On" />
     <input id="mute_off" type="button" value="Off" />
 </fieldset>
-
-<div id="cmd"></div>
-<div id="cmx"></div>
+</div>
 
 <script>
 //get();
