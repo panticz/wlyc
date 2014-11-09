@@ -23,3 +23,7 @@ Open wlyc web interface in a browser
 
 Direct access (e.g. change input to DVD)  
 `http://YOUR_OPENWRT_IP/cgi-bin/wlyc?p1=input&p2=dvd`
+
+### JavaScript Yamaha Receiver Webcontrol for Yamaha RX-V3900
+Live Demo available under:
+http://dl.panticz.de/wlyc/wlyc3900.html
