@@ -106,6 +106,11 @@ function power(v) {
     cmd = '<Main_Zone><Power_Control><Power>' + v + '</Power></Power_Control></Main_Zone>';
     post(cmd);
 }
+
+function load(v) {
+    cmd = '<Main_Zone><Sys_Mem><Load>' + v + '</Load></Sys_Mem></Main_Zone>';
+    post(cmd);
+}
 -->
 </script>
 </head>
@@ -127,6 +132,16 @@ function power(v) {
     <legend>Power</legend>
     <input id="power_on" type="button" value="On" />
     <input id="power_off" type="button" value="Off" />
+</fieldset>
+
+<fieldset>
+    <legend>Memory Load</legend>
+    <input id="load_1" type="button" value="1" />
+    <input id="load_2" type="button" value="2" />
+    <input id="load_3" type="button" value="3" />
+    <input id="load_4" type="button" value="4" />
+    <input id="load_5" type="button" value="5" />
+    <input id="load_6" type="button" value="6" />
 </fieldset>
 
 </div>
@@ -212,6 +227,30 @@ $('#power_off').click(function() {
 
 $('#mute_on').click(function() {
     mute("On");
+});
+
+$('#load_1').click(function() {
+    load("Mem1");
+});
+
+$('#load_2').click(function() {
+    load("Mem2");
+});
+
+$('#load_3').click(function() {
+    load("Mem3");
+});
+
+$('#load_4').click(function() {
+    load("Mem4");
+});
+
+$('#load_5').click(function() {
+    load("Mem5");
+});
+
+$('#load_6').click(function() {
+    load("Mem6");
 });
 
 $('#mute_off').click(function() {
