@@ -151,6 +151,7 @@ function load(v) {
 <fieldset>
     <legend>Input</legend>
     <input id="input_dvd" type="button" value="DVD" />
+    <input id="input_bd" type="button" value="BD" />
     <input id="input_tv" type="button" value="TV" />
     <input id="input_usb" type="button" value="USB" />
     <input id="input_net" type="button" value="NET" />
@@ -307,6 +308,10 @@ $('#vol_-75').click(function() {
 
 $('#input_dvd').click(function() {
     input('DVD');
+});
+
+$('#input_bd').click(function() {
+    input('BD/HD DVD');
 });
 
 $('#input_tv').click(function() {
